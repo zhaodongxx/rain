@@ -79,14 +79,18 @@ def pollRootUpdateTime():
             u'root已打包 ' + ret['time'], toUserName=friends[0]['UserName'])
         email = iEmail()
         email.sendEmail(u'root已打包  >' + ret['time'])
-        #else:
-        #itchat.send(u'root未打包 ' + ret['time'], toUserName=msg['FromUserName'])
+        # else:
+        # itchat.send(u'root未打包 ' + ret['time'],
+        # toUserName=msg['FromUserName'])
 
-def getAddr():
-    count = len(open("1024.txt", 'rU').readlines()) 
+
+def getAddr(self, parameter_list):
+    count = len(open("1024.txt", 'rU').readlines())
     linenum = random.randint(1, count)
     addr = linecache.getline("1024.txt", linenum)
+
     return addr
+
 
 @itchat.msg_register(itchat.content.TEXT)
 def text_reply(msg):
